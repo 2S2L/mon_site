@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestations - 2S2L</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>2S2L - Prestations</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="prestation.html">Prestations</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="prestations-container">
+            <div class="prestation">
+                <img src="images/sonorisation.jpg" alt="Sonorisation">
+                <h2>Sonorisation</h2>
+            </div>
+            <div class="prestation">
+                <img src="images/eclairage.jpg" alt="Éclairage">
+                <h2>Éclairage</h2>
+            </div>
+            <div class="prestation">
+                <img src="images/concert.jpg" alt="Concert">
+                <h2>Concert</h2>
+            </div>
+            <div class="prestation">
+                <img src="images/evenements.jpg" alt="Événements">
+                <h2>Événements</h2>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 2S2L. All rights reserved.</p>
+    </footer>
+</body>
+</html>
