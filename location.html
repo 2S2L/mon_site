@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Rental</title>
+</head>
+<body>
+    <h1>Equipment Rental List</h1>
+    <form action="/submit-email" method="POST">
+        <label for="equipment">Choose your equipment:</label><br>
+        <select id="equipment" name="equipment">
+            <option value="enceinte">Enceinte</option>
+            <option value="micro">Micro</option>
+        </select><br><br>
+        <label for="email">Your Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
