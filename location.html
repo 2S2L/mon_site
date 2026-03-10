@@ -1,21 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equipment Rental</title>
+    <title>Location de Matériel - 2S2L</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Equipment Rental List</h1>
-    <form action="/submit-email" method="POST">
-        <label for="equipment">Choose your equipment:</label><br>
-        <select id="equipment" name="equipment">
-            <option value="enceinte">Enceinte</option>
-            <option value="micro">Micro</option>
-        </select><br><br>
-        <label for="email">Your Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        <input type="submit" value="Submit">
-    </form>
+    <header>
+        <h1>2S2L - Location de Matériel</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="prestation.html">Prestations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Sélectionnez votre matériel</h2>
+            
+            <div id="equipment-list" class="equipment-grid">
+                <!-- Les équipements s'afficheront ici -->
+            </div>
+
+            <form id="location-form">
+                <label for="customer-email"><strong>Votre adresse email :</strong></label>
+                <input type="email" id="customer-email" name="email" required placeholder="votre.email@example.com">
+
+                <div class="total-section">
+                    <h3>Total : <span id="total-price">0</span>€</h3>
+                </div>
+
+                <button type="submit">Demander un devis</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 2S2L. Tous droits réservés.</p>
+    </footer>
+
+    <script src="js/panier.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
