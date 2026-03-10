@@ -4,7 +4,7 @@ const equipmentList = [
         id: 1, 
         name: 'Enceinte', 
         description: 'Enceinte sonore professionnelle haute puissance',
-        image: 'images/enceinte.jpg',
+        image: 'images/altoTS.jpg',
         prices: { seul: 50, paire: 90, bonus: 130 }
     },
     { 
