@@ -63,48 +63,50 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function renderEquipment() {
-    const equipmentContainer = document.getElementById('equipment-list');
-    if (!equipmentContainer) return;
+  const equipmentContainer = document.getElementById('equipment-list');
+  if (!equipmentContainer) return;
+  equipmentContainer.innerHTML = '';
 
-    equipmentContainer.innerHTML = '';
-    
-    equipmentList.forEach(equipment => {
-        const div = document.createElement('div');
-        div.className = 'equipment-card';
+  equipmentList.forEach(equipment => {
+    const card = document.createElement('div');
+    card.className = 'w3-col l4 m6 w3-margin-bottom';
 
-        let optionsHTML='';        
-        for (const optionName in equipment.prices) {
-            const opt = equipment.prices[optionName];
-            optionsHTML += `
-                <label class="option-label">
-                    <input type="checkbox"
-                           class="equipment-checkbox"
-                           data-equipment-id="${equipment.id}"
-                           data-option="${opt.label}"
-                           data-price="${opt.price}">
-                    ${opt.label} — <strong>${opt.price}€/jour</strong>
-                </label>
-            `;
-        }
+    let optionsHTML = '';
 
-        div.innerHTML = `
-            <img src="${equipment.image}" alt="${equipment.name}" class="equipment-image">
-            <h3>${equipment.name}</h3>
-            <p class="equipment-description">${equipment.description}</p>
-            
-            
-            <div class="equipment-options">
-                ${optionsHTML}
-            </div>
-        `;
+    for (const optionName in equipment.prices) {
+      const opt = equipment.prices[optionName];
+      optionsHTML += `
+        <label class="w3-block w3-padding-small w3-border-bottom w3-hover-light-grey">
+          <input 
+            class="equipment-checkbox" 
+            type="checkbox" 
+            data-equipment-id="${equipment.id}" 
+            data-option="${opt.label}" 
+            data-price="${opt.price}"
+          >
+          <span class="w3-margin-left">${opt.label} — <b>${opt.price}€</b>/jour</span>
+        </label>
+      `;
+    }
 
-        equipmentContainer.appendChild(div);
-    });
+    card.innerHTML = `
+      <div class="w3-card w3-round-large w3-white w3-padding">
+        <img src="${equipment.image}" class="w3-image w3-round" style="height:200px;object-fit:cover;">
+        <h3 class="w3-margin-top">${equipment.name}</h3>
+        <p class="w3-text-grey">${equipment.description.replace(/\n/g, "<br>")}</p>
 
-    // Add event listeners to checkboxes
-    document.querySelectorAll('.equipment-checkbox').forEach(checkbox => {
-        checkbox.addEventListener('change', updateTotal);
-    });
+        <div class="w3-margin-top">
+          ${optionsHTML}
+        </div>
+      </div>
+    `;
+
+    equipmentContainer.appendChild(card);
+  });
+
+  document.querySelectorAll('.equipment-checkbox').forEach(cb => {
+    cb.addEventListener('change', updateTotal);
+  });
 }
 
 function updateTotal() {
