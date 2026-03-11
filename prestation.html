@@ -1,44 +1,95 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prestations - 2S2L</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2S2L • Prestations</title>
+
+  <!-- W3.CSS + police -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700&display=swap" />
+  <style> html,body{font-family:"Raleway",sans-serif;} </style>
+
+  <!-- Ton CSS (optionnel) -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>2S2L - Prestations</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="location.html">Location</a></li>
-                <li><a href="prestation.html">Prestations</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="prestations-container">
-            <div class="prestation">
-                <img src="images/sonorisation.jpg" alt="Sonorisation">
-                <h2>Sonorisation</h2>
-            </div>
-            <div class="prestation">
-                <img src="images/eclairage.jpg" alt="Éclairage">
-                <h2>Éclairage</h2>
-            </div>
-            <div class="prestation">
-                <img src="images/concert.jpg" alt="Concert">
-                <h2>Concert</h2>
-            </div>
-            <div class="prestation">
-                <img src="images/evenements.jpg" alt="Événements">
-                <h2>Événements</h2>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 2S2L. All rights reserved.</p>
-    </footer>
+
+  <!-- Top bar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-card">
+      <a href="index.html" class="w3-bar-item w3-button w3-wide"><b>2S2L</b></a>
+      <div class="w3-right w3-hide-small">
+        <a href="location.html" class="w3-bar-item w3-button">Location</a>
+        <a href="prestation.html" class="w3-bar-item w3-button w3-black">Prestations</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- En-tête -->
+  <header class="w3-display-container w3-light-grey" style="padding-top:90px">
+    <div class="w3-content" style="max-width:1100px">
+      <h1 class="w3-xxlarge w3-margin-top">Prestations</h1>
+      <p class="w3-text-grey">Sonorisation, éclairage, concerts, événements — au forfait.</p>
+    </div>
+  </header>
+
+  <!-- Grille de prestations -->
+  <div class="w3-content w3-padding-64" style="max-width:1100px">
+    <div class="w3-row-padding">
+
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card w3-round">
+          <img src="images/sonorisation.jpg" alt="Sonorisation" style="width:100%;height:220px;object-fit:cover" />
+          <div class="w3-container">
+            <h3>Sonorisation</h3>
+            <p class="w3-text-grey">Prestation son pro adaptée au lieu et au public.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card w3-round">
+          <img src="images/eclairage.jpg" alt="Éclairage" style="width:100%;height:220px;object-fit:cover" />
+          <div class="w3-container">
+            <h3>Éclairage</h3>
+            <p class="w3-text-grey">Ambiance, show ou mise en valeur de scène.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card w3-round">
+          <img src="images/concert.jpg" alt="Concert" style="width:100%;height:220px;object-fit:cover" />
+          <div class="w3-container">
+            <h3>Concert</h3>
+            <p class="w3-text-grey">Set complet : diffusion, retours, microphonie.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card w3-round">
+          <img src="images/evenements.jpg" alt="Événements" style="width:100%;height:220px;object-fit:cover" />
+          <div class="w3-container">
+            <h3>Événements</h3>
+            <p class="w3-text-grey">Mariages, anniversaires, entreprises, associations.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="w3-center w3-margin-top">
+      <a href="mailto:2s2l.events@gmx.fr" class="w3-button w3-black w3-round-large">Demander un devis</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-center w3-padding-32 w3-small w3-light-grey">
+    <p>© 2026 2S2L — Tous droits réservés.</p>
+  </footer>
 </body>
 </html>
+``
