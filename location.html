@@ -1,47 +1,64 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location de Matériel - 2S2L</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2S2L • Location de matériel</title>
+
+  <!-- W3.CSS + police -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700&display=swap" />
+  <style> html,body{font-family:"Raleway",sans-serif;} </style>
+
+  <!-- Ton CSS (cards, etc.) -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>2S2L - Location de Matériel</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="location.html">Location</a></li>
-                <li><a href="prestation.html">Prestations</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section>
-            <h2>Sélectionnez votre matériel</h2>
-            
-            <div id="equipment-list" class="equipment-grid">
-                <!-- Les équipements s'afficheront ici -->
-            </div>
+  <!-- Top bar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-card">
+      <a href="index.html" class="w3-bar-item w3-button w3-wide"><b>2S2L</b></a>
+      <div class="w3-right w3-hide-small">
+        <a href="location.html" class="w3-bar-item w3-button w3-black">Location</a>
+        <a href="prestation.html" class="w3-bar-item w3-button">Prestations</a>
+      </div>
+    </div>
+  </div>
 
-            <form id="location-form">
-                <label for="customer-email"><strong>Votre adresse email :</strong></label>
-                <input type="email" id="customer-email" name="email" required placeholder="votre.email@example.com">
+  <!-- En-tête -->
+  <header class="w3-display-container w3-light-grey" style="padding-top:90px">
+    <div class="w3-content" style="max-width:1100px">
+      <h1 class="w3-xxlarge w3-margin-top">Location de matériel</h1>
+      <p class="w3-text-grey">Sélectionnez vos équipements puis demandez un devis par email.</p>
+    </div>
+  </header>
 
-                <div class="total-section">
-                    <h3>Total : <span id="total-price">0</span>€</h3>
-                </div>
+  <!-- Contenu -->
+  <div class="w3-content w3-padding-32" style="max-width:1100px">
 
-                <button type="submit">Demander un devis</button>
-            </form>
-        </section>
-    </main>
+    <!-- Grille d’équipements (remplie dynamiquement par panier.js) -->
+    <div id="equipment-list" class="w3-row-padding w3-margin-top">
+      <!-- Les cartes seront injectées ici par JS -->
+    </div>
 
-    <footer>
-        <p>&copy; 2026 2S2L. Tous droits réservés.</p>
-    </footer>
+    <!-- Panneau total + formulaire -->
+    <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue w3-round w3-margin-top">
+      <h3 class="w3-margin-top">Total : <span id="total-price">0</span> €</h3>
+      <form id="location-form" class="w3-container w3-padding-16">
+        <label for="customer-email" class="w3-text-black"><b>Votre adresse email</b></label>
+        <input class="w3-input w3-border w3-round w3-margin-bottom" type="email" id="customer-email" name="email" required placeholder="votre.email@example.com" />
+        <button type="submit" class="w3-button w3-black w3-round-large">Demander un devis</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-center w3-padding-32 w3-small w3-light-grey">
+    <p>© 2026 2S2L — Tous droits réservés.</p>
+  </footer>
 
     <script src="js/panier.js"></script>
     <script src="js/main.js"></script>
