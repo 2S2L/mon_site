@@ -110,55 +110,53 @@ function renderEquipment() {
 }
 
 function updateTotal() {
-    const checkboxes = document.querySelectorAll('.equipment-checkbox:checked');
-    let total = 0;
+  const checkboxes = document.querySelectorAll('.equipment-checkbox:checked');
+  let total = 0;
 
-    checkboxes.forEach(checkbox => {
-        total += parseFloat(checkbox.getAttribute('data-price'));
-    });
+  checkboxes.forEach(cb => { 
+    total += parseFloat(cb.dataset.price);
+  });
 
-    document.getElementById('total-price').textContent = total.toFixed(2);
+  document.getElementById('total-price').textContent = total.toFixed(2);
 }
 
 function handleLocationSubmit(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const checkboxes = document.querySelectorAll('.equipment-checkbox:checked');
-    const email = document.getElementById('customer-email').value;
+  const checkboxes = document.querySelectorAll('.equipment-checkbox:checked');
+  const email = document.getElementById('customer-email').value;
 
-    if (!email) {
-        alert('Veuillez entrer votre adresse email');
-        return;
-    }
+  if (!email) {
+    alert('Veuillez entrer votre adresse email');
+    return;
+  }
 
-    if (checkboxes.length === 0) {
-        alert('Veuillez sélectionner au moins un équipement');
-        return;
-    }
+  if (checkboxes.length === 0) {
+    alert('Veuillez sélectionner au moins un équipement');
+    return;
+  }
 
-    // Build the equipment list
-    let equipmentText = 'Équipements sélectionnés:\n\n';
-    let total = 0;
+  // Construction du message
+  let equipmentText = "Équipements sélectionnés :\n\n";
+  let total = 0;
 
-    checkboxes.forEach(checkbox => {
-        const equipmentId = checkbox.getAttribute('data-equipment-id');
-        const option = checkbox.getAttribute('data-option');
-        const price = parseFloat(checkbox.getAttribute('data-price'));
-        const equipment = equipmentList.find(e => e.id == equipmentId);
-        
-        equipmentText += `- ${equipment.name} (${option}): ${price}€\n`;
-        total += price;
-    });
+  checkboxes.forEach(cb => {
+    const equipmentId = cb.dataset.equipmentId;
+    const optionLabel = cb.dataset.option;
+    const price = parseFloat(cb.dataset.price);
+    const equipment = equipmentList.find(e => e.id == equipmentId);
 
-    equipmentText += `\n━━━━━━━━━━━━━━━━\nTotal: ${total}€`;
+    equipmentText += `- ${equipment.name} (${optionLabel}) : ${price}€\n`;
+    total += price;
+  });
 
-    // Create mailto link
-    const subject = encodeURIComponent('Nouvelle demande de devis 2S2L');
-    const body = encodeURIComponent(
-        `Bonjour 2S2L,\n\nJ'aimerais un devis pour les équipements suivants:\n\n${equipmentText}\n\nEmail client: ${email}\n\nCordialement`
-    );
+  equipmentText += `\n---------------------\nTotal : ${total}€`;
 
-    const mailtoLink = `mailto:2s2l.events@gmx.fr?subject=${subject}&body=${body}`;
+  // Envoi par email (mailto)
+  const subject = encodeURIComponent('Nouvelle demande de devis 2S2L');
+  const body = encodeURIComponent(
+    `Bonjour 2S2L,\n\nJ'aimerais un devis pour les équipements suivants :\n\n${equipmentText}\n\nEmail client : ${email}\n\nCordialement`
+  );
 
-    window.location.href = mailtoLink;
+  window.location.href = `mailto:2s2l.events@gmx.fr?subject=${subject}&body=${body}`;
 }
