@@ -1,37 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to 2S2L</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2S2L • Sonorisation & Éclairage</title>
+
+  <!-- W3.CSS + police -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700&display=swap" />
+  <style>
+    html,body {font-family: "Raleway", sans-serif;}
+    .hero {
+      background: url('images/hero.jpg') center/cover no-repeat, #111;
+      min-height: 70vh;
+      color: #fff;
+    }
+    .hero-overlay { background: rgba(0,0,0,.45); min-height: 70vh; }
+  </style>
+
+  <!-- Ton CSS optionnel (effets de cards, etc.) -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>2S2L, le partenaire de vos soirées festives</h1>
-        <nav>
-            <ul>
-                <li><a href="location.html">Location</a></li>
-                <li><a href="prestation.html">Prestations</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Location</h2>
-            <p>Location de sono / éclairage dans la vallée de l'Ouche et le dijonnais.</p>
-            <p>Anniversaires, soirées, mariage, concerts...découvrez notre matériel adapté à vos besoins.</p>
-            <p>Le matériel est facile à installer et à utiliser</p>
-        </section>
-        <section>
-            <h2>Prestation</h2>
-            <p>Sonorisation / éclairage.</p>
-            <p>Prestation de sonorisation / éclairage sur vos évènements: concerts, spectacles...</p>
-            <p>Devis sur demande</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 2S2L. All rights reserved.</p>
-    </footer>
+
+  <!-- Top bar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-card">
+      <a href="index.html" class="w3-bar-item w3-button w3-wide"><b>2S2L</b></a>
+      <div class="w3-right w3-hide-small">
+        <a href="location.html" class="w3-bar-item w3-button">Location</a>
+        <a href="prestation.html" class="w3-bar-item w3-button">Prestations</a>
+        <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero w3-display-container">
+    <div class="hero-overlay w3-display-container">
+      <div class="w3-display-left w3-padding-large" style="max-width:800px">
+        <h1 class="w3-xxlarge w3-text-white w3-margin-bottom">
+          Le partenaire de vos soirées festives
+        </h1>
+        <p class="w3-large w3-opacity">
+          Location de sono & éclairage dans la vallée de l'Ouche et le dijonnais.
+        </p>
+        <div class="w3-margin-top">
+          <a href="location.html" class="w3-button w3-black w3-round-large w3-padding-large w3-margin-right">Découvrir la location</a>
+          <a href="prestation.html" class="w3-button w3-white w3-border w3-round-large w3-padding-large">Prestations clés en main</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sections résumé -->
+  <div class="w3-content" style="max-width:1200px">
+
+    <div class="w3-container w3-padding-64">
+      <div class="w3-row-padding">
+        <div class="w3-half w3-padding-16">
+          <h2 class="w3-margin-top">Location</h2>
+          <p class="w3-text-grey">
+            Anniversaires, mariages, soirées, concerts… du matériel adapté à vos besoins, facile à installer et à utiliser.
+          </p>
+          <a href="location.html" class="w3-button w3-black w3-round">Voir le matériel</a>
+        </div>
+        <div class="w3-half w3-padding-16">
+          <h2 class="w3-margin-top">Prestations</h2>
+          <p class="w3-text-grey">
+            Sonorisation & éclairage pour vos événements (concerts, spectacles…) — devis rapide sur demande.
+          </p>
+          <a href="prestation.html" class="w3-button w3-white w3-border w3-round">Découvrir</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Contact -->
+  <div id="contact" class="w3-container w3-light-grey w3-padding-64">
+    <div class="w3-content" style="max-width:900px">
+      <h2>Contact</h2>
+      <p class="w3-text-grey">Une question, un devis ?</p>
+      <p class="w3-large">
+        <a href="mailto:2s2l.events@gmx.fr" class="w3-button w3-black w3-round">2s2l.events@gmx.fr</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-center w3-padding-32 w3-small w3-light-grey">
+    <p>© 2026 2S2L — Tous droits réservés.</p>
+  </footer>
 </body>
 </html>
+``
