@@ -3,17 +3,35 @@ const equipmentList = [
     { 
         id: 1, 
         name: 'Enceinte', 
-        description: 'Enceinte sonore professionnelle haute puissance',
+        description: 'Enceinte bluetooth: connectez simplement votre téléphone ou votre ordinateur',
         image: 'images/altoTS.jpg',
-        prices: { seul: 50, paire: 90, bonus: 130 }
+        prices: { 
+            seul: {label: "1 enceinte jusque 30 personnes", price: 45},
+            paire: {label: "2 enceintes jusque 100 personnes",  price: 80},
+            bonus: {label: "option: ajout d'un caisson de basse", price: 70 }
+        }
     },
     { 
         id: 2, 
         name: 'Micro', 
-        description: 'Microphone sans fil haute qualité',
+        description: 'Micro filaire SM58',
         image: 'images/micro.jpg',
-        prices: { seul: 10, paire: 18, bonus: 25 }
-    }
+        prices: { 
+            seul: {label: "micro seul", price: 8},
+            bonus: {label: "micro avec pied", price: 12}
+                 }
+    },
+    { 
+        id: 3, 
+        name: 'Kit lumière', 
+        description: 'Kit lumière autonome: il réagit au son de la musique<br>Nous recommandons l\'usage d'un  'e macj,
+        image: 'images/altoTS.jpg',
+        prices: { 
+            seul: {label: "1 enceinte jusque 30 personnes", price: 45},
+            paire: {label: "2 enceintes jusque 100 personnes",  price: 80},
+            bonus: {label: "option: ajout d'un caisson de basse", price: 70 }
+        }
+    },
 ];
 
 // Form submission
@@ -30,31 +48,37 @@ function renderEquipment() {
     if (!equipmentContainer) return;
 
     equipmentContainer.innerHTML = '';
+    
     equipmentList.forEach(equipment => {
         const div = document.createElement('div');
         div.className = 'equipment-card';
+
+        let optionsHTML='';        
+        for (const optionName in equipment.prices) {
+            const opt = equipment.prices[optionName];
+            optionsHTML += `
+                <label class="option-label">
+                    <input type="checkbox"
+                           class="equipment-checkbox"
+                           data-equipment-id="${equipment.id}"
+                           data-option="${opt.label}"
+                           data-price="${opt.price}">
+                    ${opt.label} — <strong>${opt.price}€/jour</strong>
+                </label>
+            `;
+        }
+
         div.innerHTML = `
             <img src="${equipment.image}" alt="${equipment.name}" class="equipment-image">
             <h3>${equipment.name}</h3>
             <p class="equipment-description">${equipment.description}</p>
             
+            
             <div class="equipment-options">
-                <label class="option-label">
-                    <input type="checkbox" class="equipment-checkbox" data-equipment-id="${equipment.id}" data-option="seul" data-price="${equipment.prices.seul}">
-                    Seul - ${equipment.prices.seul}€
-                </label>
-                
-                <label class="option-label">
-                    <input type="checkbox" class="equipment-checkbox" data-equipment-id="${equipment.id}" data-option="paire" data-price="${equipment.prices.paire}">
-                    Paire - ${equipment.prices.paire}€
-                </label>
-                
-                <label class="option-label">
-                    <input type="checkbox" class="equipment-checkbox" data-equipment-id="${equipment.id}" data-option="bonus" data-price="${equipment.prices.bonus}">
-                    Bonus - ${equipment.prices.bonus}€
-                </label>
+                ${optionsHTML}
             </div>
         `;
+
         equipmentContainer.appendChild(div);
     });
 
