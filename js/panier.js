@@ -24,12 +24,31 @@ const equipmentList = [
     { 
         id: 3, 
         name: 'Kit lumière', 
-        description: 'Kit lumière autonome: il réagit au son de la musique<br>Nous recommandons l\'usage d'un  'e macj,
+        description: 'Kit lumière autonome: il réagit au son de la musique<br>Nous recommandons l\'usage d\'une machine à fumée pour mettre en valeur les faisceaux',
+        image: 'images/PackLight1_1.jpg',
+        prices: { 
+            seul: {label: "1 kit", price: 35},
+            paire: {label: "2 kits",  price: 65},
+            bonus: {label: "option: ajout machine à fumée", price: 5 }
+        }
+    },
+    { 
+        id: 4, 
+        name: 'Projecteurs motorisés', 
+        description: 'Projecteurs motorisés autonomes: ils réagissent au son de la musique<br>Nous recommandons l\'usage d\'une machine à fumée pour mettre en valeur les faisceaux',
         image: 'images/altoTS.jpg',
         prices: { 
-            seul: {label: "1 enceinte jusque 30 personnes", price: 45},
-            paire: {label: "2 enceintes jusque 100 personnes",  price: 80},
-            bonus: {label: "option: ajout d'un caisson de basse", price: 70 }
+            paire: {label: "la paire",  price: 60},
+            bonus: {label: "option: ajout machine à fumée", price: 5 }
+        }
+    },
+    { 
+        id: 5, 
+        name: 'Machine à fumée', 
+        description: 'Accessoire indispensable pour mettre en valeur les faisceaux lumineux<br>Pas d\'inquiétude: la fumée est inoffensiv, inodore et biodégradable',
+        image: 'images/altoTS.jpg',
+        prices: { 
+            seul: {label: "Machine à fumée",  price: 5},
         }
     },
 ];
