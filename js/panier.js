@@ -3,7 +3,7 @@ const equipmentList = [
     { 
         id: 1, 
         name: 'Enceinte', 
-        description: 'Enceinte bluetooth: connectez simplement votre téléphone ou votre ordinateur',
+        description: 'Enceinte 12" avec connection bluetooth: connectez simplement votre téléphone ou votre ordinateur',
         image: 'images/altoTS.jpg',
         prices: { 
             seul: {label: "1 enceinte jusque 30 personnes", price: 45},
@@ -45,7 +45,7 @@ const equipmentList = [
     { 
         id: 5, 
         name: 'Machine à fumée', 
-        description: 'Accessoire indispensable pour mettre en valeur les faisceaux lumineux<br>Pas d\'inquiétude: la fumée est inoffensiv, inodore et biodégradable',
+        description: 'Accessoire indispensable pour mettre en valeur les faisceaux lumineux<br>Pas d\'inquiétude: la fumée est inoffensive, inodore et biodégradable',
         image: 'images/MAF_1.jpg',
         prices: { 
             seul: {label: "Machine à fumée",  price: 5},
