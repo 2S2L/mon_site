@@ -125,6 +125,7 @@ function handleLocationSubmit(e) {
 
   const checkboxes = document.querySelectorAll('.equipment-checkbox:checked');
   const email = document.getElementById('customer-email').value;
+    const eventDate = document.getElementById('event-date').value;
 
   if (!email) {
     alert('Veuillez entrer votre adresse email');
@@ -155,7 +156,7 @@ function handleLocationSubmit(e) {
   // Envoi par email (mailto)
   const subject = encodeURIComponent('Nouvelle demande de devis 2S2L');
   const body = encodeURIComponent(
-    `Bonjour 2S2L,\n\nJ'aimerais un devis pour les équipements suivants :\n\n${equipmentText}\n\nEmail client : ${email}\n\nCordialement`
+    `Bonjour 2S2L,\n\nJ'aimerais un devis pour les équipements suivants :\n\n${equipmentText}\n\nEmail client : ${email}\nDate de l'événement : ${eventDate}\n\nCordialement`
   );
 
   window.location.href = `mailto:2s2l.events@gmx.fr?subject=${subject}&body=${body}`;
