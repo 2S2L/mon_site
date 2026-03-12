@@ -15,7 +15,7 @@ const equipmentList = [
         id: 2, 
         name: 'Micro', 
         description: 'Micro filaire SM58',
-        image: 'images/micro.jpg',
+        image: 'images/SM58.webp',
         prices: { 
             seul: {label: "micro seul", price: 8},
             bonus: {label: "micro avec pied", price: 12}
@@ -36,7 +36,7 @@ const equipmentList = [
         id: 4, 
         name: 'Projecteurs motorisés', 
         description: 'Projecteurs motorisés autonomes: ils réagissent au son de la musique<br>Nous recommandons l\'usage d\'une machine à fumée pour mettre en valeur les faisceaux',
-        image: 'images/altoTS.jpg',
+        image: 'images/Lyres1.jpg',
         prices: { 
             paire: {label: "la paire",  price: 60},
             bonus: {label: "option: ajout machine à fumée", price: 5 }
@@ -46,7 +46,7 @@ const equipmentList = [
         id: 5, 
         name: 'Machine à fumée', 
         description: 'Accessoire indispensable pour mettre en valeur les faisceaux lumineux<br>Pas d\'inquiétude: la fumée est inoffensiv, inodore et biodégradable',
-        image: 'images/altoTS.jpg',
+        image: 'images/MAF_1.jpg',
         prices: { 
             seul: {label: "Machine à fumée",  price: 5},
         }
