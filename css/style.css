@@ -1,52 +1,25 @@
-/* Equipment Grid */
-.equipment-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+/* Uniformiser la hauteur des cartes */
+.w3-col {
+    display: flex;
 }
 
-.equipment-card {
-    background-color: white;
+.card-equipement {
+    background: white;
     border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    padding: 1.5rem;
-}
-
-.equipment-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.equipment-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-}
-
-.equipment-card h3 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    color: #ff6b6b;
-}
-
-.equipment-description {
-    color: #666;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-}
-
-.equipment-options {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
+    height: 100%;
+}
+
+/* Espace entre les blocs internes */
+.card-equipement h3 {
+    margin-top: 0;
+}
+
+.card-equipement .options {
+    margin-top: auto; /* reste en bas */
 }
 
 .option-label {
