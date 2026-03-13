@@ -70,6 +70,15 @@ function renderEquipment() {
   equipmentList.forEach(equipment => {
     const card = document.createElement('div');
     card.className = 'w3-col l4 m6 w3-margin-bottom';
+    card.innerHTML = `
+        <div class="card-equipement">
+            <h3>${equipment.name}</h3>
+            <p>${equipment.description.replace(/\n/g, "<br>")}</p>
+            <div class="options">
+                ${optionsHTML}
+            </div>
+        </div>`;
+
 
     let optionsHTML = '';
 
