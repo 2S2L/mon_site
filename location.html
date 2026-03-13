@@ -6,13 +6,14 @@
   <title>2S2L • Location de matériel</title>
 
   <!-- W3.CSS + police -->
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700&display=swap" />
   <style> html,body{font-family:"Raleway",sans-serif;} </style>
 
   <!-- Ton CSS (cards, etc.) -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/w3-custom.css">
 </head>
 <body>
 
@@ -71,6 +72,16 @@
     name="event_date"
     required
   />
+  <!-- Commentaires -->
+  <label class="w3-text-black"><b>Commentaires (optionnel)</b></label>
+  <textarea
+    class="w3-input w3-border w3-round w3-margin-bottom"
+    id="customer-comments"
+    name="comments"
+    rows="4
+    placeholder="Informations supplémentaires, besoins spécifiques, lieu exact, horaires..."
+  ></textarea>
+
 
     <button 
       type="submit" 

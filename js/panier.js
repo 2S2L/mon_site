@@ -65,55 +65,56 @@ document.addEventListener('DOMContentLoaded', function() {
 function renderEquipment() {
   const equipmentContainer = document.getElementById('equipment-list');
   if (!equipmentContainer) return;
+
   equipmentContainer.innerHTML = '';
 
-  equipmentList.forEach(equipment => {
+  equipmentList.forEach((equipment) => {
     const card = document.createElement('div');
     card.className = 'w3-col l4 m6 w3-margin-bottom';
-    card.innerHTML = `
-        <div class="card-equipement">
-            <h3>${equipment.name}</h3>
-            <p>${equipment.description.replace(/\n/g, "<br>")}</p>
-            <div class="options">
-                ${optionsHTML}
-            </div>
-        </div>`;
 
-
+    // Construction des options avec cases à cocher
     let optionsHTML = '';
-
-    for (const optionName in equipment.prices) {
-      const opt = equipment.prices[optionName];
+    Object.entries(equipment.prices).forEach(([optionName, opt]) => {
       optionsHTML += `
-        <label class="w3-block w3-padding-small w3-border-bottom w3-hover-light-grey">
-          <input 
-            class="equipment-checkbox" 
-            type="checkbox" 
-            data-equipment-id="${equipment.id}" 
-            data-option="${opt.label}" 
+        <label class="w3-block w3-padding-small w3-border-bottom">
+          <input
+            class="equipment-checkbox w3-check"
+            type="checkbox"
+            data-equipment-id="${equipment.id}"
+            data-option="${opt.label}"
             data-price="${opt.price}"
           >
-          <span class="w3-margin-left">${opt.label} — <b>${opt.price}€</b>/jour</span>
+          <span class="w3-margin-left">
+            ${opt.label} — <b>${opt.price}€</b>/jour
+          </span>
         </label>
       `;
-    }
+    });
 
-    card.innerHTML = `
-      <div class="w3-card w3-round-large w3-white w3-padding">
-        <img src="${equipment.image}" class="w3-image w3-round" style="height:200px;object-fit:cover;">
-        <h3 class="w3-margin-top">${equipment.name}</h3>
-        <p class="w3-text-grey">${equipment.description.replace(/\n/g, "<br>")}</p>
+    // Carte W3.CSS
+card.innerHTML = `
+  <div class="w3-card w3-round w3-white w3-card-uniform">
 
-        <div class="w3-margin-top">
-          ${optionsHTML}
-        </div>
-      </div>
-    `;
+    <img src="${equipment.image}" class="card-image">
+
+    <div class="w3-container card-body">
+      <h3>${equipment.name}</h3>
+      <p class="w3-text-grey">${equipment.description.replace(/\n/g, "<br>")}</p>
+    </div>
+
+    <div class="w3-container w3-padding-small card-options">
+      ${optionsHTML}
+    </div>
+
+  </div>
+`;
+``
 
     equipmentContainer.appendChild(card);
   });
 
-  document.querySelectorAll('.equipment-checkbox').forEach(cb => {
+  // Ajout des écouteurs de mise à jour du total
+  document.querySelectorAll('.equipment-checkbox').forEach((cb) => {
     cb.addEventListener('change', updateTotal);
   });
 }
@@ -134,7 +135,8 @@ function handleLocationSubmit(e) {
 
   const checkboxes = document.querySelectorAll('.equipment-checkbox:checked');
   const email = document.getElementById('customer-email').value;
-    const eventDate = document.getElementById('event-date').value;
+  const eventDate = document.getElementById('event-date').value;
+  const comments = document.getElementById('customer-comments').value || "Aucun commentaire";
 
   if (!email) {
     alert('Veuillez entrer votre adresse email');
@@ -165,7 +167,7 @@ function handleLocationSubmit(e) {
   // Envoi par email (mailto)
   const subject = encodeURIComponent('Nouvelle demande de devis 2S2L');
   const body = encodeURIComponent(
-    `Bonjour 2S2L,\n\nJ'aimerais un devis pour les équipements suivants :\n\n${equipmentText}\n\nEmail client : ${email}\nDate de l'événement : ${eventDate}\n\nCordialement`
+    `Bonjour 2S2L,\n\nJ'aimerais un devis pour les équipements suivants :\n\n${equipmentText}\n\nEmail client : ${email}\nDate de l'événement : ${eventDate}\nCommentaires : ${comments}\n\nCordialement`
   );
 
   window.location.href = `mailto:2s2l.events@gmx.fr?subject=${subject}&body=${body}`;
