@@ -133,42 +133,40 @@ function updateTotal() {
 function handleLocationSubmit(e) {
   e.preventDefault();
 
+  const form = document.getElementById('location-form');
   const checkboxes = document.querySelectorAll('.equipment-checkbox:checked');
-  const email = document.getElementById('customer-email').value;
+  const email = document.getElementById('customer-email').value.trim();
   const eventDate = document.getElementById('event-date').value;
-  const comments = document.getElementById('customer-comments').value || "Aucun commentaire";
+  const commentsEl = document.getElementById('customer-comments');
+  const comments = (commentsEl && commentsEl.value ? commentsEl.value : 'Aucun commentaire').trim();
 
   if (!email) {
-    alert('Veuillez entrer votre adresse email');
+    alert("Veuillez entrer votre adresse email");
     return;
   }
-
   if (checkboxes.length === 0) {
-    alert('Veuillez sélectionner au moins un équipement');
+    alert("Veuillez sélectionner au moins un équipement");
     return;
   }
 
-  // Construction du message
+  // Construit le récapitulatif pour l'email + stockage
   let equipmentText = "Équipements sélectionnés :\n\n";
   let total = 0;
-
-  checkboxes.forEach(cb => {
+  checkboxes.forEach((cb) => {
     const equipmentId = cb.dataset.equipmentId;
     const optionLabel = cb.dataset.option;
     const price = parseFloat(cb.dataset.price);
-    const equipment = equipmentList.find(e => e.id == equipmentId);
-
+    const equipment = equipmentList.find((e) => e.id == equipmentId);
     equipmentText += `- ${equipment.name} (${optionLabel}) : ${price}€\n`;
     total += price;
   });
+  equipmentText += `\n---------------------\nTotal : ${total}€\n`;
+  equipmentText += `\nEmail client : ${email}\nDate de l'événement : ${eventDate}\nCommentaires : ${comments}`;
 
-  equipmentText += `\n---------------------\nTotal : ${total}€`;
+  // Remplit les champs cachés
+  document.getElementById('cart-summary').value = equipmentText;
+  document.getElementById('cart-total').value = total.toFixed(2);
 
-  // Envoi par email (mailto)
-  const subject = encodeURIComponent('Nouvelle demande de devis 2S2L');
-  const body = encodeURIComponent(
-    `Bonjour 2S2L,\n\nJ'aimerais un devis pour les équipements suivants :\n\n${equipmentText}\n\nEmail client : ${email}\nDate de l'événement : ${eventDate}\nCommentaires : ${comments}\n\nCordialement`
-  );
-
-  window.location.href = `mailto:2s2l.events@gmx.fr?subject=${subject}&body=${body}`;
+  // Envoi classique du formulaire => POST vers FormSubmit
+  form.submit();
 }
