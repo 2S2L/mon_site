@@ -53,18 +53,23 @@
     Total : <span id="total-price" class="w3-text-blue">0</span> €
   </h3>
 
-  <form id="location-form" class="w3-container w3-padding-16 w3-white w3-round-large">
+  <form
+    id="location-form"
+    class="w3-container w3-padding-16 w3-white w3-round-large"
+    method="POST"
+    action="https://formsubmit.co/2s2l.events@gmx.fr"
+  >
+  <!-- Vos champs visibles -->
+  <label class="w3-text-black"><b>Votre adresse email</b></label>
+  <input
+    class="w3-input w3-border w3-round w3-margin-bottom"
+    type="email"
+    id="customer-email"
+    name="email"
+    required
+    placeholder="votre.email@example.com"
+  />
 
-    <label class="w3-text-black"><b>Votre adresse email</b></label>
-    <input 
-      class="w3-input w3-border w3-round w3-margin-bottom" 
-      type="email" 
-      id="customer-email" 
-      name="email" 
-      required 
-      placeholder="votre.email@example.com"
-    />
-    <!-- Date de l'événement -->
   <label class="w3-text-black"><b>Date de l'événement</b></label>
   <input
     class="w3-input w3-border w3-round w3-margin-bottom"
@@ -73,7 +78,7 @@
     name="event_date"
     required
   />
-  <!-- Commentaires -->
+
   <label class="w3-text-black"><b>Commentaires (optionnel)</b></label>
   <textarea
     class="w3-input w3-border w3-round w3-margin-bottom"
@@ -83,14 +88,26 @@
     placeholder="Informations supplémentaires, besoins spécifiques, lieu exact, horaires..."
   ></textarea>
 
+  <!-- Champs cachés transmis à FormSubmit -->
+  <!-- Redirection "merci" après envoi -->
+  <input type="hidden" name="_next" value="https://2S2L.fr/location.html" />
+  <!-- Sujet du mail que tu reçois -->
+  <input type="hidden" name="_subject" value="Nouvelle demande de devis 2S2L" />
+  <!-- reCAPTCHA (par défaut activé). Mets false si tu veux le désactiver -->
+  <input type="hidden" name="_captcha" value="true" />
+  <!-- Anti-spam honeypot -->
+  <input type="text" name="_honey" style="display:none" />
 
-    <button 
-      type="submit" 
-      class="w3-button w3-blue w3-round-large w3-hover-indigo w3-large w3-margin-top"
-    >
-      Demander un devis
-    </button>
-  </form>
+  <!-- Champs cachés que l’on remplira en JS avant l’envoi -->
+  <input type="hidden" id="cart-summary" name="cart_summary" />
+  <input type="hidden" id="cart-total" name="cart_total" />
+
+  <button
+    type="submit"
+    class="w3-button w3-blue w3-round-large w3-hover-indigo w3-large w3-margin-top">
+    Demander un devis
+  </button>
+</form>
 
 </div>
 
