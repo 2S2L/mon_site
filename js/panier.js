@@ -2,6 +2,17 @@
 const equipmentList = [
     { 
         id: 1, 
+        name: 'Pack son & lumières', 
+        description: 'Enceintes, kits lumières, machine à fumée',
+        image: 'images/pack2.webp',
+        prices: { 
+            seul: {label: "Jusque 30 personnes: 1 enceinte + 1 kit lumière", price: 80},
+            paire: {label: "Jusque 120 personnes: 2 enceintes + 2 kits lumières",  price: 150},
+            bonus: {label: "option: ajout d'une machine à fumée", price: 5}
+        }
+    },
+    { 
+        id: 2, 
         name: 'Enceinte', 
         description: 'Enceinte 12" avec connection bluetooth: connectez simplement votre téléphone ou votre ordinateur',
         image: 'images/altoTS.jpg',
@@ -12,7 +23,7 @@ const equipmentList = [
         }
     },
     { 
-        id: 2, 
+        id: 3, 
         name: 'Micro', 
         description: 'Micro filaire SM58',
         image: 'images/SM58.webp',
@@ -22,7 +33,7 @@ const equipmentList = [
                  }
     },
     { 
-        id: 3, 
+        id: 4, 
         name: 'Kit lumière', 
         description: 'Kit lumière autonome: il réagit au son de la musique<br>Nous recommandons l\'usage d\'une machine à fumée pour mettre en valeur les faisceaux',
         image: 'images/PackLight1_1.jpg',
@@ -33,7 +44,7 @@ const equipmentList = [
         }
     },
     { 
-        id: 4, 
+        id: 5, 
         name: 'Projecteurs motorisés', 
         description: 'Projecteurs motorisés autonomes: ils réagissent au son de la musique<br>Nous recommandons l\'usage d\'une machine à fumée pour mettre en valeur les faisceaux',
         image: 'images/Lyres1.jpg',
@@ -43,7 +54,7 @@ const equipmentList = [
         }
     },
     { 
-        id: 5, 
+        id: 6, 
         name: 'Machine à fumée', 
         description: 'Accessoire indispensable pour mettre en valeur les faisceaux lumineux<br>Pas d\'inquiétude: la fumée est inoffensive, inodore et biodégradable',
         image: 'images/MAF_1.jpg',
