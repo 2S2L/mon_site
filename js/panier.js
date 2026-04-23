@@ -4,7 +4,7 @@ const equipmentList = [
         id: 1, 
         name: 'Pack son & lumières', 
         description: 'Enceintes, kits lumières, machine à fumée',
-        image: 'images/pack2.webp',
+        image: 'images/pack2.jpg',
         prices: { 
             seul: {label: "Jusque 30 personnes: 1 enceinte + 1 kit lumière", price: 80},
             paire: {label: "Jusque 120 personnes: 2 enceintes + 2 kits lumières",  price: 150},
